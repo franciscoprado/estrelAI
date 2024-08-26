@@ -51,7 +51,8 @@
                     <small class="form-text text-muted">Analise o brilho estelar intrínseco, padronizado para estudos
                         comparativos em vastas distâncias cósmicas.</small>
                 </div>
-                <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Enviar</button>
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#myModal">Enviar</button>
             </form>
         </div>
     </section>
@@ -60,11 +61,28 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Tipo de estrela</h5>
+                    <h5 class="modal-title">O tipo de estrela é:</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Tipo é: </p>
+                    <span id="0" class="estrela-tipo d-none">
+                        Anã Marrom
+                    </span>
+                    <span id="1" class="estrela-tipo d-none">
+                        Anã vermelha
+                    </span>
+                    <span id="2" class="estrela-tipo d-none">
+                        Anã branca
+                    </span>
+                    <span id="3" class="estrela-tipo d-none">
+                        Sequência principal
+                    </span>
+                    <span id="4" class="estrela-tipo d-none">
+                        Estrela supergigante
+                    </span>
+                    <span id="5" class="estrela-tipo d-none">
+                        Estrela hipergigante
+                    </span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>

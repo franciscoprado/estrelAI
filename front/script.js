@@ -13,13 +13,23 @@ const atualizarValor = (event) => {
 const aoEnviar = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
+    const estrelaTipos = document.querySelectorAll(".estrela-tipo");
+    const url = 'http://127.0.0.1:5000/estrela';
 
-    let url = 'http://127.0.0.1:5000/estrela';
+    estrelaTipos.forEach((estrelaTipo) => {
+        estrelaTipo.classList.add('d-none');
+    })
+
     fetch(url, {
         method: 'post',
         body: formData
     })
         .then((response) => response.json())
+        .then((json) => {
+            const estrelaTipo = document.getElementById(`${json.type}`);
+
+            estrelaTipo.classList.remove('d-none');
+        })
         .catch((error) => {
             console.error('Error:', error);
         });
