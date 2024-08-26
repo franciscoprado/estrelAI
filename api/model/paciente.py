@@ -3,15 +3,16 @@ from sqlalchemy.orm import relationship
 from datetime import datetime
 from typing import Union
 
-from  model import Base
+from model import Base
 
 # colunas = Pregnancies,Glucose,BloodPressure,SkinThickness,test,BMI,DiabetesPedigreeFunction,Age,Outcome
 
+
 class Paciente(Base):
     __tablename__ = 'pacientes'
-    
+
     id = Column(Integer, primary_key=True)
-    name= Column("Name", String(50))
+    name = Column("Name", String(50))
     preg = Column("Pregnacies", Integer)
     plas = Column("Glucose", Integer)
     pres = Column("BloodPressure", Integer)
@@ -22,11 +23,11 @@ class Paciente(Base):
     age = Column("Age", Integer)
     outcome = Column("Diagnostic", Integer, nullable=True)
     data_insercao = Column(DateTime, default=datetime.now())
-    
-    def __init__(self, preg:int, plas:int, pres:int, name:str,
-                 skin:int, test:int, mass:float, 
-                 pedi:float, age:int, outcome:int, 
-                 data_insercao:Union[DateTime, None] = None):
+
+    def __init__(self, preg: int, plas: int, pres: int, name: str,
+                 skin: int, test: int, mass: float,
+                 pedi: float, age: int, outcome: int,
+                 data_insercao: Union[DateTime, None] = None):
         """
         Cria um Paciente
 
@@ -43,7 +44,7 @@ class Paciente(Base):
             outcome: diagnóstico
             data_insercao: data de quando o paciente foi inserido à base
         """
-        self.name=name
+        self.name = name
         self.preg = preg
         self.plas = plas
         self.pres = pres

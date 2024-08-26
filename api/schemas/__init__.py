@@ -1,5 +1,2 @@
-from schemas.paciente_schema import PacienteSchema,  PacienteBuscaSchema, PacienteViewSchema, PacienteDelSchema, \
-                                    apresenta_pacientes, apresenta_paciente
-                                        
+from schemas.estrela_schema import EstrelaSchema, EstrelaViewSchema, apresenta_estrela
 from schemas.error_schema import ErrorSchema
-                                    
