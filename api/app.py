@@ -5,7 +5,6 @@ from urllib.parse import unquote
 from sqlalchemy.exc import IntegrityError
 
 from model import *
-from logger import logger
 from schemas import *
 from flask_cors import CORS
 
@@ -19,7 +18,7 @@ CORS(app)
 home_tag = Tag(name="Documentação",
                description="Seleção de documentação: Swagger, Redoc ou RapiDoc")
 estrela_tag = Tag(
-    name="Estrela", description="Adição, visualização, remoção e predição de tipo de estrela")
+    name="Estrela", description="Predição de tipo de estrela")
 
 
 # Rota home
@@ -35,22 +34,16 @@ def home():
 @app.post('/estrela', tags=[estrela_tag],
           responses={"200": EstrelaViewSchema, "400": ErrorSchema, "409": ErrorSchema})
 def predict(form: EstrelaSchema):
-    # Recuperando os dados do formulário
-    temperature = form.temperature
-    luminosity = form.luminosity
-    radius = form.radius
-    absoluteMagnitude = form.absoluteMagnitude
+    # Preparando os dados para o modelo
+    X_input = PreProcessador.preparar_form(form)
+    # Carregando modelo
+    model_path = './MachineLearning/pipelines/rf_estrelas_pipeline.pkl'
+    # modelo = Model.carrega_modelo(ml_path)
+    modelo = Pipeline.carrega_pipeline(model_path)
+    # Realizando a predição
+    type = int(Model.preditor(modelo, X_input)[0])
 
-    # # Preparando os dados para o modelo
-    # X_input = PreProcessador.preparar_form(form)
-    # # Carregando modelo
-    # model_path = './MachineLearning/pipelines/rf_diabetes_pipeline.pkl'
-    # # modelo = Model.carrega_modelo(ml_path)
-    # modelo = Pipeline.carrega_pipeline(model_path)
-    # # Realizando a predição
-    # outcome = int(Model.preditor(modelo, X_input)[0])
-
-    return apresenta_estrela(form), 200
+    return {"type": type}, 200
 
 
 if __name__ == '__main__':

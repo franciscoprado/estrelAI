@@ -2,5 +2,5 @@ class Estrela:
     temperature: float
     luminosity: float
     radius: float
-    absoluteMagnitude: float
+    absolute_magnitude: float
     type: int
