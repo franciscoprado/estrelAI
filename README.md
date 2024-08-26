@@ -1,6 +1,6 @@
 # estrelAI
 
-Dataset contém dados astronômicos de cada estrela com essas propriedades com 7 colunas e o índice de alcance é de 240 entradas.
+Dataset contém dados astronômicos de cada estrela com essas propriedades com 5 colunas e o índice de alcance é de 240 entradas.
 
 Instalando as dependências via pip:
 
