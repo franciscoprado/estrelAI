@@ -6,19 +6,15 @@ import numpy as np
 
 
 class EstrelaSchema(BaseModel):
-    """ Define como um novo paciente a ser inserido deve ser representado
+    """ Define como uma estrela deve ser representada
     """
-    temperature: float = 0
-    luminosity: float = 0
-    radius: float = 0
-    absolute_magnitude: float = 0
+    temperature: float
+    luminosity: float
+    radius: float
+    absolute_magnitude: float
 
 
 class EstrelaViewSchema(BaseModel):
-    """Define como um paciente será retornado
+    """Define como uma estrela será retornada
     """
-    temperature: float = 0
-    luminosity: float = 0
-    radius: float = 0
-    absolute_magnitude: float = 0
-    type: int = 0
+    type: int

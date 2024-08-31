@@ -28,16 +28,22 @@ def home():
     """
     return redirect('/openapi')
 
-# Rota de adição de paciente
-
 
 @app.post('/estrela', tags=[estrela_tag],
-          responses={"200": EstrelaViewSchema, "400": ErrorSchema, "409": ErrorSchema})
+          responses={"200": EstrelaViewSchema, "400": ErrorSchema, "422": ErrorSchema})
 def predict(form: EstrelaSchema):
+    """Retornará uma predição do tipo de estrela a partir de dados como temperatura e tamanho.
+
+    Args:
+        form (EstrelaSchema): Os dados da estrela.
+
+    Returns:
+        EstrelaViewSchema: O tipo da estrela.
+    """
     # Preparando os dados para o modelo
     X_input = PreProcessador.preparar_form(form)
     # Carregando modelo
-    model_path = './MachineLearning/pipelines/rf_estrelas_pipeline.pkl'
+    model_path = './MachineLearning/pipelines/cart_estrelas_pipeline.pkl'
     # modelo = Model.carrega_modelo(ml_path)
     modelo = Pipeline.carrega_pipeline(model_path)
     # Realizando a predição
