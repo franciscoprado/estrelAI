@@ -8,14 +8,15 @@ modelo = Model()
 avaliador = Avaliador()
 
 # Parâmetros
-url_dados = "./MachineLearning/data/cleaned_star_data_only_numbers.csv"
+url_dados = "./MachineLearning/data/cleaned_star_data.csv"
 colunas = ['temperature', 'luminosity', 'radius', 'absolute_magnitude']
 
 # Carga dos dados
 dataset = Carregador.carregar_dados(url_dados, colunas)
 array = dataset.values
-X = array[:, 0:-1]
-y = array[:, -1]
+X = array[:, 0:4]
+y = array[:, 4]
+y = y.astype('float')
 
 
 def test_modelo_cart():
