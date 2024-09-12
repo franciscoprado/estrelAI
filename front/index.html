@@ -7,7 +7,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 </head>
 
-<body onload="inicializacao(event)">
+<body class="mx-5" onload="inicializacao(event)">
     <header class="px-4 py-2 my-2 text-center">
         <img class="d-block mx-auto mb-4" src="imagens/star-rainbow-svgrepo-com.svg" alt="" width="72" height="57" />
         <h1 class="display-5 fw-bold text-body-emphasis">EstrelAI</h1>
@@ -22,29 +22,29 @@
         <div class="d-flex gap-3 justify-content-center">
             <form id="form" class="flex-row" onsubmit="aoEnviar(event)">
                 <div class="my-4 form-group">
-                    <label for="temperature" class="form-label">Temperatura (K): <span class="valor"></span></label>
+                    <label for="temperature" class="form-label d-block">Temperatura (K): <span class="valor"></span></label>
                     <input type="range" class="form-range" onmousemove="atualizarValor(event)" id="temperature"
                         name="temperature" min="1939" max="40000" />
                     <small class="form-text text-muted">Mergulhe nas propriedades
                         térmicas de estrelas, crucial para entender seu ciclo de vida e energia saída.</small>
                 </div>
                 <div class="my-4 form-group">
-                    <label for="luminosity" class="form-label">Luminosidade (L/Lo): <span class="valor"></span></label>
+                    <label for="luminosity" class="form-label d-block">Luminosidade (L/Lo): <span class="valor"></span></label>
                     <input type="range" class="form-range" onmousemove="atualizarValor(event)" id="luminosity"
-                        name="luminosity" min="0.00008" max="849420" />
+                        name="luminosity" min="0.008" max="849420" />
                     <small class="form-text text-muted">Explore o brilho estelar em relação ao
                         nosso Sol (Lo = 3,828 x 10 ^ 26 Watts), oferecendo informações sobre o tamanho das estrelas e a
                         produção de energia.</small>
                 </div>
                 <div class="my-4 form-group">
-                    <label for="radius" class="form-label">Raio (R/Ro): <span class="valor"></span></label>
+                    <label for="radius" class="form-label d-block">Raio (R/Ro): <span class="valor"></span></label>
                     <input type="range" class="form-range" onmousemove="atualizarValor(event)" id="radius" name="radius"
                         min="0.0084" max="1948.5" />
                     <small class="form-text text-muted">Compare os tamanhos das estrelas com o nosso Sol (Ro = 6,995 x
                         10 ^ 8 m), essencial para compreender a evolução e estrutura estelar.</small>
                 </div>
                 <div class="my-4 form-group">
-                    <label for="absolute-magnitude" class="form-label">Magnitude Absoluta (Mv): <span
+                    <label for="absolute-magnitude" class="form-label d-block">Magnitude Absoluta (Mv): <span
                             class="valor"></span></label>
                     <input type="range" class="form-range" onmousemove="atualizarValor(event)" id="absolute-magnitude"
                         name="absolute_magnitude" min="-11.92" max="20.11" />
